@@ -4,12 +4,21 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  root 'request#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    
   get 'notes' => 'notes#index'
   resources :notes
+  resources :google_flights, only:[:index]
+  resources :search_flights, only:[:index]
+  resources :cities, only:[:index]
+  resources :request, only:[:index]
+  
+  
+  #get 'airport/:iata' => 'cities#index'
+  
+  get 'cities/:code', :to => 'cities#show', as: :code
   
   namespace :api do
     namespace :v1 do

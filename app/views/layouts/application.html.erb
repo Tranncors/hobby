@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzie Travels</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'puzie-icon.png', rel: 'uzie icon', type: 'image/png' %>
 </head>
 <body>
+  <header class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+      <nav class="nav_item">
+        <%= image_tag "puzie-logo.png", class:"pull-right" %>
+        <%= link_to "Puzie Travels", root_path, class:"logo" %>
+      </nav>
+    </div>
+  </header>
 
-<%= yield %>
-
+  <div class="container">
+    <article id="flights" class="hero">
+    
+     <% if notice.present? %>
+   <aside class="alert alert-info">
+     <%= notice %>
+   </aside>
+  <% end %>
+ <% if alert.present? %>
+   <aside class="alert alert-danger">
+    <%= alert %>
+   </aside>
+ <% end %>
+ 
+    <%= yield %>
+    
+    </article>
+  </div>
+  
+  <footer class="navbar navbar-fixed-bottom navbar-default">
+    <div class="footer gold container">
+      <div class="nav_item">
+       <h5 class="pull-right">Puzie Travels &copy 2017</h5>
+       <h5>Powered by Many Cares Ltd</h5>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

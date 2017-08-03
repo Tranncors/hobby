@@ -1,0 +1,63 @@
+ 
+ 
+<section>
+<%= simple_form_for :request, method: :get do |f| %>
+<div class="input-group input-group-lg row">
+    
+    <div class="form-group col-md-2">
+      <%= label_tag :adults, nil, class: "sr-only" %><br>
+      <%= text_field_tag :adult_count, nil, placeholder: 'How many adults', class: "form-control input-md" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= label_tag :child_count, nil, class: "sr-only" %><br>
+      <%= text_field_tag :child_count, nil, placeholder: 'How many kids', class: "form-control input-md" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= label_tag :origin, nil, class: "sr-only" %><br>
+      <%= text_field_tag :origin, nil, placeholder: 'From where', class: "form-control input-md" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= label_tag :destination, nil, class: "sr-only" %><br>
+      <%= text_field_tag :destination, nil, placeholder: 'To where', class: "form-control input-md" %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= label_tag :date,  nil, class: "sr-only" %><br>
+      <%= text_field_tag :date, nil, "data-provide" => 'datepicker', "data-date-format" => 'yyyy-mm-dd', placeholder: "Flight Date", class: "form-control input-md" %>
+    </div>
+    <div class="form-group col-md-2"><br>
+     <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md" %></span>
+    </div>
+    <% end %>
+ 
+</div>
+
+</section>
+
+<% unless @orrey.nil? %>
+<section class="search-results">
+<header>
+<h1 class="h3">Results</h1>
+</header>
+
+ <ol class="list-group">
+  <% @orrey.each do |trip| %>
+   <li class="list-group-item clearfix">
+   <h4><small class="pull-right">Price: <%= trip.sale_total %></small> Basis Code: <%= trip.pricing[0].fare[0].basis_code %></h4>
+   <h3>Origin: <%= trip.slice[0].segment[0].leg[0].origin %></h3>
+   <h5 class="pull-right">Origin Departure: <%= l trip.slice[0].segment[0].leg[0].departure_time.to_datetime %></h4>
+   <h4>Destination: <%= trip.pricing[0].fare[0].destination %></h4>
+   <h4>Aircraft: <%= trip.slice[0].segment[0].leg[0].aircraft %></h4>
+   <h4><small class="pull-right">Latest Ticketing Time:<%= l trip.pricing[0].latest_ticketing_time.to_datetime %></small> Flight no: <%= trip.slice[0].segment[0].flight.number %></h4>
+   <h4>Carrier: <%= trip.slice[0].segment[0].flight.carrier %></h4>
+   <h5 class="pull-right">Duration: <%= trip.slice[0].segment[0].duration %></h5> 
+   <span class="input-group-btn"><%= submit_tag "Book This Flight", class: "btn btn-primary btn-md" %></span>
+   </li>
+  <% end %>
+ </ol>
+</section>
+<% end %>
+

@@ -1,0 +1,119 @@
+<section class="search-form">
+<%= form_for :search_flights, method: :get do |f| %>
+<div class="input-group input-group-lg row">
+   
+    <div class="form-group col-md-2">
+      <%= f.label :FlightDate, "Flight Date" %><br>
+      <%= f.text_field :date_of_tour, "data-provide" => 'datepicker', class: "form-control input-md" %>
+    </div>
+
+<div class="form-group col-md-2">
+<%= f.label :Origin %><br>
+<%= f.select :Origin, [ 'Kolkata','Delhi','Mumbai' ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :Destination %><br>
+<%= f.select :Destination, [ 'Kolkata','Delhi','Mumbai' ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :NoOfAdults, 'Number of Adults' %><br>
+<%= f.select :NoOfAdults, [ 1,2,3 ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :NoOfChildren, 'Number of Children' %><br>
+<%= f.select :NoOfChildren, [ 1,2,3 ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+
+    <div class="form-group col-md-2">
+      <%= f.label :ReturnDate, "Return Date" %><br>
+      <%= f.text_field :date_of_tour, "data-provide" => 'datepicker', class: "form-control input-md" %>
+    </div>
+    
+<span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-lg" %></span>
+</div>
+<% end %>
+
+
+<%= simple_form_for :search_flights, method: :get do |f| %>
+<div class="input-group input-group-lg row">
+   
+    <div class="form-group col-md-2">
+      <%= f.label :FlightDate, "Flight Date" %><br>
+      <%= f.text_field :date_of_tour, "data-provide" => 'datepicker', class: "form-control input-md" %>
+    </div>
+
+<div class="form-group col-md-2">
+<%= f.label :Origin %><br>
+<%= f.select :Origin, [ 'SFO','LAX','OGG','NCE' ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :Destination %><br>
+<%= f.select :Destination, [ 'SFO','LAX','OGG','NCE' ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :NoOfAdults, 'Number of Adults' %><br>
+<%= f.select :NoOfAdults, [ 1,2,3 ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+<div class="form-group col-md-2">
+<%= f.label :NoOfChildren, 'Number of Children' %><br>
+<%= f.select :NoOfChildren, [ 1,2,3 ], :prompt => 'Select One', class: "form-control input-md" %>
+</div>
+
+
+    <div class="form-group col-md-2">
+      <%= f.label :ReturnDate, "Return Date" %><br>
+      <%= f.text_field :date_of_tour, "data-provide" => 'datepicker', class: "form-control input-md" %>
+    </div>
+    
+<span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-lg" %></span>
+</div>
+<% end %>
+
+
+<%= simple_form_for :search_flights, url: search_flights_url, as: 'inline_form',
+  wrapper: :inline_form,
+  html: { class: 'form-inline' } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email, placeholder: 'Enter email' %>
+
+  <%= f.input :password, placeholder: 'Password' %>
+
+  <%= f.input :active, inline_label: 'Remember me' %>
+  
+    <%#= f.simple_fields_for(@post.custom_fields) do |cf| %>
+     <%#=  cf :hash_tags  %>
+    <%#= end %>
+
+  <%= f.button :submit %>
+<% end %>
+
+</section>
+
+<section class="search-results">
+<header>
+<h1 class="h3">Results</h1>
+</header>
+
+<% @orrey.each do |trip| %>
+<p>Price: <%= trip.sale_total %></P>
+<p>Basis Code: <%= trip.pricing[0].fare[0].basis_code %></P>
+<p>Origin: <%= trip.slice[0].segment[0].leg[0].origin %></P>
+<p>Origin Departure: <%= trip.slice[0].segment[0].leg[0].departure_time %></p>
+<p>Destination: <%= trip.pricing[0].fare[0].destination %></P>
+<p>Aircraft: <%= trip.slice[0].segment[0].leg[0].aircraft %></p>
+<p>Flight no: <%= trip.slice[0].segment[0].flight.number %></p>
+<p>Carrier: <%= trip.slice[0].segment[0].flight.carrier %></p>
+<% end %>
+
+</section>
+
+
+<p><%#= @orrey.pricing[0..20].sale_total %></p>

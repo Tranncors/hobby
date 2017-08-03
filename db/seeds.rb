@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#json = ActiveSupport::JSON.decode(File.read('db/cities.json'))
+
+#json.each do |a|
+#  City.create!(airport: a)
+#end

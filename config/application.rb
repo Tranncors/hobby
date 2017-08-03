@@ -27,6 +27,7 @@ module Workspace
       g.helper false
       g.assets false
     end
+    config.active_record.schema_format = :sql
     #config.notes_xml_service_root = "http://api.open-notify.org/iss-now.json?callback=CALLBACK"
   end
 end

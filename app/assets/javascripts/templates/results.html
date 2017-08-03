@@ -1,0 +1,120 @@
+<section class="container">
+<h1>Welcome to ngRoute</h1>
+
+
+<header>
+<h1 class="h3">Results</h1>
+</header>
+   
+   <ol ng-repeat="trip in trips">
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[0].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[0].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[0].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[0].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[0].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[0].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[1].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[1].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[1].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[1].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[1].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[1].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+       
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[2].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[2].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[2].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[2].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[2].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[2].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+       
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[3].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[3].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[3].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[3].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[3].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[3].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+       
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[4].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[4].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[4].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[4].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[4].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[4].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+       
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[15].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[15].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[15].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[15].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[15].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[15].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>
+
+       <li class="list-group-item clearfix">
+        <div class="pull-right">
+       <button class="btn btn-small btn-primary"
+         ng-click="">
+          <td>Price: {{trip.tripOption[19].pricing[0].saleTotal}}</td>
+       </button>
+       <h4> <small></small>Origin: {{trip.tripOption[19].pricing[0].fare[0].origin}}</small>
+       <small>Destination: {{trip.tripOption[19].pricing[0].fare[0].destination}} </small></h4> 
+     </div>
+       <h4>FlightCode: <b>{{trip.tripOption[19].pricing[0].fare[0].basisCode}}</b>
+       <small>Airline: {{trip.tripOption[19].pricing[0].fare[0].carrier}}</small></h4>
+       <h4>Departure: {{trip.tripOption[19].slice[0].segment[0].leg[0].arrivalTime | date:'medium'}}</h4>
+       </li>       
+       
+   </ol>
+   
+   <form><div class="row">
+<div class="col-md-6">
+<h1>Customer</h1>
+</div>
+<div class="col-md-6">
+<h1>Billing Info</h1>
+</div>
+</div></form>
+   
+   
+</section>

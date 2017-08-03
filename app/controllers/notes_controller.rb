@@ -18,7 +18,8 @@ class NotesController < ApplicationController
 		articles = doc.css(article_css_class)
 
 		#html output
-		html = ""
+		#html = ""
+		@notes = ""
 
 		#extract the title from the articles
 		articles.each do |article|
@@ -49,10 +50,13 @@ class NotesController < ApplicationController
 		  # Extracting the text from an Nokogiri::XML::Element is easy by calling the #text method, 
 		  # notice how we can also do it on the NodeSet, 
 		  # there it as a different semantic by invoking #text in all the children nodes
-  	  html += "%s\n%s\n%s\n\n\n" % [prime_title.text, separator, summary_node.text]
+  	  #html += "%s\n%s\n%s\n\n\n" % [prime_title.text, separator, summary_node.text]
+  	   @notes += "%s\n%s\n%s\n\n\n" % [prime_title.text, separator, summary_node.text]
 		end
 
-		render :text => html,:content_type => "text/plain"
-	end
-   
+		#render :text => html,:content_type => "text/plain"
+		#render :text => @notes,:content_type => "text/plain"
+		render json: @notes
+    end
+	
 end
