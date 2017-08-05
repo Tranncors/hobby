@@ -1,2 +1,6 @@
-<%= @cities.name %>
-<%#= @cities.airport[0] %>
+<% @cities.each do |city| %>
+<%#= @city.airport[0] %>
+   <ul>
+       <li>Airport Code: <%= city.airport[0] %>, Airport Name: <%= city.airport[1]["name"] %>, Airport City: <%= city.airport[1]["city"] %>, Country: <%= city.airport[1]["country"] %></li>
+   </ul>
+<% end %>  

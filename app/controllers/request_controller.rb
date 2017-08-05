@@ -1,6 +1,7 @@
 class RequestController < ApplicationController
 require 'google/apis/qpx_express_v1'
   QpxExpress = Google::Apis::QpxExpressV1 # Alias the module 
+   layout 'flights'
    
    def index
     if params[:adult_count].present?
@@ -28,6 +29,7 @@ require 'google/apis/qpx_express_v1'
  }
  }
        @request = service.search_trips(search_trips_request_object, fields: 'trips(trip_option)') 
+       @cities = City.all
        unless @request.trips.nil?
          @orrey = @request.trips.trip_option[0..20]
         else
@@ -35,6 +37,7 @@ require 'google/apis/qpx_express_v1'
        end
      else
          @request = []
+         @cities = City.all
      end
   end
    

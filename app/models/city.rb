@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+    has_many :request
     
     def self.to_param
         "#{airport[0]}"
@@ -16,5 +17,8 @@ class City < ActiveRecord::Base
     
     def self.code
         code = self.airport[0]
+    end
+    def location
+       [ airport[1]["city"],airport[1]["country"] ].join(' , ')
     end
 end
