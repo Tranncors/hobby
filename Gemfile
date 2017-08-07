@@ -14,15 +14,14 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-#gem 'api_client', '~> 0.5.12'
-#gem 'google-api-client', '0.8.2', require: 'google/api_client'
+gem 'devise'
 gem 'google-api-client', '~> 0.11'
 #gem 'rest-client'
 gem 'bower-rails'
-gem 'angular-rails'
+#gem 'angular-rails'
 gem 'angular-rails-templates'
 gem "sprockets", "~> 2.0"
-gem 'angular_rails_csrf'
+#gem 'angular_rails_csrf'
 gem 'json'
 gem 'pg'
 gem 'bootstrap-datepicker-rails'

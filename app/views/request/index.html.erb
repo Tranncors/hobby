@@ -1,5 +1,9 @@
  
 <section>
+    <% if user_signed_in? %>
+      <span class="pull-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-md"  %></span>
+    <% end %>
+    <h2>Compare flights</h2>
 <%= simple_form_for :request, method: :get do |f| %>
 <div class="input-group input-group-lg row">
     
@@ -30,7 +34,11 @@
       <%= text_field_tag :date, nil, "data-provide" => 'datepicker', "data-date-format" => 'yyyy-mm-dd', placeholder: "Flight Date", class: "form-control input-md" %>
     </div>
     <div class="form-group col-md-2"><br>
-     <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md" %></span>
+    <% if user_signed_in? %>
+      <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md" %></span>
+     <% else %>
+      <span class="input-group-btn"><%= link_to "Login To Compare", new_user_session_path, class: "btn btn-primary btn-md" %></span>
+     <% end %>
     </div>
     <% end %>
  
