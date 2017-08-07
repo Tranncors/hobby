@@ -9,29 +9,29 @@
     
     <div class="form-group col-md-2">
       <%= label_tag :adults, nil, class: "sr-only" %><br>
-      <%= text_field_tag :adult_count, nil, placeholder: 'How many adults', class: "form-control input-md" %>
+      <%= text_field_tag :adult_count, nil, placeholder: 'How many adults', class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :child_count, nil, class: "sr-only" %><br>
-      <%= text_field_tag :child_count, nil, placeholder: 'How many kids', class: "form-control input-md" %>
+      <%= text_field_tag :child_count, nil, placeholder: 'How many kids', class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :origin, nil, class: "sr-only" %><br>
       <%#= text_field_tag :origin, nil, placeholder: 'From where', class: "form-control input-md" %>
-      <%= select_tag :origin, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "From where", class: "form-control input-md" %>
+      <%= select_tag :origin, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "From where", class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :destination, nil, class: "sr-only" %><br>
       <%#= text_field_tag :destination, nil, placeholder: 'To where', class: "form-control input-md" %>
-      <%= select_tag :destination, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "To where", class: "form-control input-md" %>
+      <%= select_tag :destination, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "To where", class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :date,  nil, class: "sr-only" %><br>
-      <%= text_field_tag :date, nil, "data-provide" => 'datepicker', "data-date-format" => 'yyyy-mm-dd', placeholder: "Flight Date", class: "form-control input-md" %>
+      <%= text_field_tag :date, nil, "data-provide" => 'datepicker', "data-date-format" => 'yyyy-mm-dd', placeholder: "Flight Date", class: "form-control input-md", required: true %>
     </div>
     <div class="form-group col-md-2"><br>
     <% if user_signed_in? %>
