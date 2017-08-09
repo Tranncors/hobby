@@ -26,6 +26,9 @@ gem 'json'
 gem 'pg'
 gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
+gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

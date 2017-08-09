@@ -6,15 +6,18 @@
     <h2>Compare flights</h2>
 <%= simple_form_for :request, method: :get do |f| %>
 <div class="input-group input-group-lg row">
+
     
     <div class="form-group col-md-2">
       <%= label_tag :adults, nil, class: "sr-only" %><br>
-      <%= text_field_tag :adult_count, nil, placeholder: 'How many adults', class: "form-control input-md", required: true %>
+      <%= select_tag :adult_count, options_for_select([ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]), prompt: 'How many adults', class: "form-control input-md", required: true %>
+      <%#= text_field_tag :adult_count, nil, placeholder: 'How many adults', class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :child_count, nil, class: "sr-only" %><br>
-      <%= text_field_tag :child_count, nil, placeholder: 'How many kids', class: "form-control input-md", required: true %>
+      <%= select_tag :child_count, options_for_select([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]), prompt: 'How many kids', class: "form-control input-md", required: true %>
+      <%#= text_field_tag :child_count, nil, placeholder: 'How many kids', class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
@@ -34,11 +37,9 @@
       <%= text_field_tag :date, nil, "data-provide" => 'datepicker', "data-date-format" => 'yyyy-mm-dd', placeholder: "Flight Date", class: "form-control input-md", required: true %>
     </div>
     <div class="form-group col-md-2"><br>
-    <% if user_signed_in? %>
+    
       <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md" %></span>
-     <% else %>
-      <span class="input-group-btn"><%= link_to "Login To Compare", new_user_session_path, class: "btn btn-primary btn-md" %></span>
-     <% end %>
+     
     </div>
     <% end %>
  
@@ -62,8 +63,12 @@
    <h4>Aircraft: <%= trip.slice[0].segment[0].leg[0].aircraft %></h4>
    <h4><small class="pull-right">Latest Ticketing Time:<%= l trip.pricing[0].latest_ticketing_time.to_datetime %></small> Flight no: <%= trip.slice[0].segment[0].flight.number %></h4>
    <h4>Carrier: <%= trip.slice[0].segment[0].flight.carrier %></h4>
-   <h5 class="pull-right">Duration: <%= trip.slice[0].segment[0].duration %></h5> 
+   <h5 class="pull-right">Duration: <%= trip.slice[0].segment[0].duration %></h5>
+   <% if user_signed_in? %>
    <span class="input-group-btn"><%= submit_tag "Book This Flight", class: "btn btn-primary btn-md" %></span>
+   <% else %>
+      <span class="input-group-btn"><%= link_to "Login To Book", new_user_session_path, class: "btn btn-primary btn-md" %></span>
+     <% end %>
    </li>
   <% end %>
  </ol>

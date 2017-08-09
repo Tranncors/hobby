@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+
+  get 'charges/create'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -15,8 +19,9 @@ Rails.application.routes.draw do
   resources :search_flights, only:[:index]
   resources :cities, only:[:index]
   resources :request, only:[:index]
+  resources :charges, only: [:new, :create]
   
-  
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
   #get 'airport/:iata' => 'cities#index'
   
   get 'cities/:code', :to => 'cities#show', as: :code
