@@ -2,6 +2,7 @@
   "name": "dsl-generated-dependencies",
   "dependencies": {
     "bootstrap-sass-official": "latest",
-    "q": "latest"
+    "q": "latest",
+    "hippicons": "latest"
   }
 }

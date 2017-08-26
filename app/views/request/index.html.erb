@@ -23,13 +23,13 @@
     <div class="form-group col-md-2">
       <%= label_tag :origin, nil, class: "sr-only" %><br>
       <%#= text_field_tag :origin, nil, placeholder: 'From where', class: "form-control input-md" %>
-      <%= select_tag :origin, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "From where", class: "form-control input-md", required: true %>
+      <%= select_tag :origin, options_for_select(@airports.collect{ |u|  [ u.location, u.iata ] }), prompt: "From where", class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
       <%= label_tag :destination, nil, class: "sr-only" %><br>
       <%#= text_field_tag :destination, nil, placeholder: 'To where', class: "form-control input-md" %>
-      <%= select_tag :destination, options_for_select(@cities.collect{ |u|  [ u.location, u.airport[0] ] }), prompt: "To where", class: "form-control input-md", required: true %>
+      <%= select_tag :destination, options_for_select(@airports.collect{ |u|  [ u.location, u.iata ] }), prompt: "To where", class: "form-control input-md", required: true %>
     </div>
     
     <div class="form-group col-md-2">
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-2"><br>
     
-      <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md" %></span>
+      <span class="input-group-btn"><%= submit_tag "Find Flights", class: "btn btn-primary btn-md fetchpage" %></span>
      
     </div>
     <% end %>
@@ -47,31 +47,112 @@
 
 </section>
 
+<aside class="progress">
+ 
+    Loading…  <i class="hi hi-spinner hi-5x hi-pulse"></i>
+      
+ </aside>
+
 <% unless @orrey.nil? %>
-<section class="search-results">
-<header>
+<article class="panel panel-default search-results">
+<header class="panel-heading">
 <h1 class="h3">Results</h1>
+<%= will_paginate @orrey %>
 </header>
 
- <ol class="list-group">
+ <section class="panel-body">
+ <div class="row">
+
   <% @orrey.each do |trip| %>
-   <li class="list-group-item clearfix">
-   <h4><small class="pull-right">Price: <%= trip.sale_total %></small> Basis Code: <%= trip.pricing[0].fare[0].basis_code %></h4>
-   <h3>Origin: <%= trip.slice[0].segment[0].leg[0].origin %></h3>
-   <h5 class="pull-right">Origin Departure: <%= l trip.slice[0].segment[0].leg[0].departure_time.to_datetime %></h4>
-   <h4>Destination: <%= trip.pricing[0].fare[0].destination %></h4>
-   <h4>Aircraft: <%= trip.slice[0].segment[0].leg[0].aircraft %></h4>
-   <h4><small class="pull-right">Latest Ticketing Time:<%= l trip.pricing[0].latest_ticketing_time.to_datetime %></small> Flight no: <%= trip.slice[0].segment[0].flight.number %></h4>
-   <h4>Carrier: <%= trip.slice[0].segment[0].flight.carrier %></h4>
-   <h5 class="pull-right">Duration: <%= trip.slice[0].segment[0].duration %></h5>
-   <% if user_signed_in? %>
-   <span class="input-group-btn"><%= submit_tag "Book This Flight", class: "btn btn-primary btn-md" %></span>
-   <% else %>
-      <span class="input-group-btn"><%= link_to "Login To Book", new_user_session_path, class: "btn btn-primary btn-md" %></span>
+    
+   <div class="col-md-6">
+      <article class="panel panel-info">
+            
+        <header class="panel-heading">
+          <div class="row">
+            <div class="col-md-6">
+              <h4> Basis Code: <%= trip.pricing[0].fare[0].basis_code %></h4>
+            </div>
+            <div class="col-md-6">
+               <h4>Price: <%= trip.sale_total %></h4> 
+            </div>
+          </div>   
+        </header>
+        <section class="panel-body">
+   <% trip.slice.each do |sil| %>
+
+            <ul class="list-group">    
+               <li class="list-group-item">Total duration of the flight <i class='hi hi-clock-o hi-2x text-warning'></i>: <span class="badge"><%= sil.duration %> Minutes</span> </li>
+               <li class="list-group-item">This flight has <i class='hi hi-exchange hi-2x text-warning'></i>: <span class="badge"><%= sil.segment.length %> segments</span> </li>
+            </ul> 
+        </section>
+        <footer class="panel-footer">
+          <div class="trip">   
+             <p>Book flight easy  <i class="hi hi-arrow-right text-danger hi-lg"></i></p> 
+           </div> 
+        </footer>
+        
+     </article>
+    </div>    
+    
+    <div class="col-md-6"> 
+      <article class="panel panel-primary">
+          <header class="panel-heading">
+              <h1>Specific flight info</h1>
+          </header>
+    
+     <% sil.segment.each do |seg| %>
+       <% corrier = @airlines.find { |airline| airline.iata == seg.flight.carrier } %>
+        <section class="panel-body">
+        <div class="row">
+           <div class="col-md-6">
+              <h4>Airline: <%= corrier.name %></h4> 
+            </div>
+            <div class="col-md-6">
+              <h4>Flight number: <%= seg.flight.number %></h4>
+            </div>
+        </div> 
+        <ul class="list-group">
+           <li class="list-group-item">Total duration  <i class='hi hi-hourglass-half hi-lg text-danger'></i>: <span class="badge"><%= seg.duration %> Minutes </span></li>
+        </ul>   
+      <% unless seg.connection_duration.nil? %>
+        <ul class="list-group">
+           <li class="list-group-item">Connection duration: <span class="badge"><%= seg.connection_duration %> Minutes</span> <i class="hi hi-anchor hi-spin hi-lg"></i></li>
+        </ul>
+      <% end %>
+        <% seg.leg.each do |leg| %>
+          <% origin = @airports.find { |airport| airport.iata == leg.origin } %>
+          <% destination = @airports.find { |airport| airport.iata == leg.destination } %>
+          
+           <div class="trip">          
+              <p>Origin: <%= origin.name %> Airport, <%= origin.city %>, <%= origin.country %> <i class="hi hi-plane hi-rotate-90 text-info hi-2x"></i></p>
+           </div>
+           <div class="trip">
+              <p>Destination: <%= destination.name %> Airport, <%= destination.city %>, <%= destination.country %> <i class="hi hi-plane hi-rotate-270 text-success hi-2x"></i></p>
+           </div>
+           
+           <div class="trip">           
+              <p>Departure: <%= l leg.departure_time.to_datetime %></p>
+           </div>  
+        <% end %>  
      <% end %>
-   </li>
+   <% end %>
+      </section>
+      <footer class="panel-footer">
+            <div class="trip">
+              <% if user_signed_in? %>
+                 <span class="input-group-btn"><%= submit_tag "Book This Flight", class: "btn btn-primary btn-md pull-right" %></span>
+              <% else %>
+                 <span class="input-group-btn"><%= link_to "Login To Book", new_user_session_path, class: "btn btn-primary btn-md pull-right" %></span>
+              <% end %>
+            </div>  
+       </footer>
+    </article>   
+   </div>
   <% end %>
- </ol>
-</section>
+   
+ </div>
+ </section>
+</article>
 <% end %>
 

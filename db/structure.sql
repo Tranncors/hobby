@@ -30,12 +30,89 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: airlines; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE airlines (
+    id integer NOT NULL,
+    iata character varying,
+    name character varying
+);
+
+
+--
+-- Name: airlines_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE airlines_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: airlines_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE airlines_id_seq OWNED BY airlines.id;
+
+
+--
+-- Name: airports; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE airports (
+    id integer NOT NULL,
+    name character varying,
+    city character varying,
+    country character varying,
+    iata character varying,
+    icao character varying,
+    latitude numeric(10,6),
+    longitude numeric(10,6),
+    altitude integer,
+    timezone integer,
+    dst character varying
+);
+
+
+--
+-- Name: airports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE airports_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: airports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE airports_id_seq OWNED BY airports.id;
+
+
+--
 -- Name: cities; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE cities (
     id integer NOT NULL,
-    airport json DEFAULT '{}'::json
+    name character varying,
+    city character varying,
+    country character varying,
+    iata character varying,
+    icao character varying,
+    latitude numeric(10,6),
+    longitude numeric(10,6),
+    altitude integer,
+    timezone integer,
+    dst character varying
 );
 
 
@@ -143,6 +220,20 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY airlines ALTER COLUMN id SET DEFAULT nextval('airlines_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY airports ALTER COLUMN id SET DEFAULT nextval('airports_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY cities ALTER COLUMN id SET DEFAULT nextval('cities_id_seq'::regclass);
 
 
@@ -158,6 +249,22 @@ ALTER TABLE ONLY items ALTER COLUMN id SET DEFAULT nextval('items_id_seq'::regcl
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: airlines_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY airlines
+    ADD CONSTRAINT airlines_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: airports_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY airports
+    ADD CONSTRAINT airports_pkey PRIMARY KEY (id);
 
 
 --
@@ -182,6 +289,48 @@ ALTER TABLE ONLY items
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: airlines_iata; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airlines_iata ON airlines USING btree (iata);
+
+
+--
+-- Name: airlines_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airlines_name ON airlines USING btree (name);
+
+
+--
+-- Name: airports_city; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_city ON airports USING btree (city);
+
+
+--
+-- Name: airports_country; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_country ON airports USING btree (country);
+
+
+--
+-- Name: airports_iata; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_iata ON airports USING btree (iata);
+
+
+--
+-- Name: airports_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_name ON airports USING btree (name);
 
 
 --
@@ -216,4 +365,12 @@ INSERT INTO schema_migrations (version) VALUES ('20161102111548');
 INSERT INTO schema_migrations (version) VALUES ('20170728054241');
 
 INSERT INTO schema_migrations (version) VALUES ('20170806103239');
+
+INSERT INTO schema_migrations (version) VALUES ('20170816160512');
+
+INSERT INTO schema_migrations (version) VALUES ('20170817173526');
+
+INSERT INTO schema_migrations (version) VALUES ('20170825183742');
+
+INSERT INTO schema_migrations (version) VALUES ('20170825190630');
 

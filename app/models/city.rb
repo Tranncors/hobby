@@ -19,6 +19,7 @@ class City < ActiveRecord::Base
         code = self.airport[0]
     end
     def location
-       [ airport[1]["city"],airport[1]["country"] ].join(' , ')
+       [ airport[1]["city"],airport[1]['country'] ].join(' , ')
     end
+
 end

@@ -1,5 +1,6 @@
 class Request
     attr_accessor :adult_count, :child_count, :origin, :destination, :date, :solution
+    
   #def slice
   #    [@slice1, @slice2]
   #end

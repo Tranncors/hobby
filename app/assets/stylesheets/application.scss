@@ -1,3 +1,10 @@
+ @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+ @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+ @import "hippicons/scss/hippicons";
+ @import 'bootstrap-datepicker';
+ @import 'flights';
+ @import 'loada';
+ @import 'droppy';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -12,7 +19,4 @@
  *
  *= require_tree .
  *= require_self
- *= require 'bootstrap-sass-official'
- *= require bootstrap-datepicker
- *= require flights
  */

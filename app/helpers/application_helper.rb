@@ -15,5 +15,10 @@ end
   def invert
     each_with_object({}).with_index{ |(x,h),i| h[x] = i }
   end
+  
+  #def airline(array)
+
+    
+  #end
 
 end

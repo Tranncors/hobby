@@ -1,0 +1,37 @@
+{
+  "name": "hippicons",
+  "homepage": "https://github.com/codediodeio/hippicons",
+  "authors": [
+    "Jeff Delaney <hello@codediode.io>"
+  ],
+  "description": "a hipp icon font for the web",
+  "main": [
+    "css/hippicons.css",
+    "scss/hippicons.scss"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "icon",
+    "font",
+    "iconfont",
+    "glyphs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.1.1",
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.1",
+    "commit": "d1c8f19bda9c96318889b152d208ac4bea98c0b4"
+  },
+  "_source": "https://github.com/codediodeio/hippicons.git",
+  "_target": "*",
+  "_originalSource": "hippicons"
+}

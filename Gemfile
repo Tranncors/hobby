@@ -20,8 +20,9 @@ gem 'google-api-client', '~> 0.11'
 gem 'bower-rails'
 #gem 'angular-rails'
 gem 'angular-rails-templates'
-gem "sprockets", "~> 2.0"
+#gem "sprockets", "~> 2.0"
 #gem 'angular_rails_csrf'
+gem 'will_paginate', '~> 3.1.0'
 gem 'json'
 gem 'pg'
 gem 'bootstrap-datepicker-rails'
