@@ -33,8 +33,8 @@ require 'will_paginate/collection'
        @airports = Airport.all.reorder(:country)
        
        unless @request.trips.nil?
-         @correy = @request.trips.trip_option[0..20]
-         @orrey = @correy.paginate(:page => params[:page], :per_page => 5)
+         @orrey = @request.trips.trip_option[0..20]
+         #@orrey = @correy.paginate(:page => params[:page], :per_page => 5)
          @airlines = Airline.all
         else
          flash[:notice] = "No trips to the airport"
