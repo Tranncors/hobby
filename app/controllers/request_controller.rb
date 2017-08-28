@@ -1,6 +1,7 @@
 class RequestController < ApplicationController
 require 'google/apis/qpx_express_v1'
 require 'will_paginate/collection'
+
   QpxExpress = Google::Apis::QpxExpressV1 # Alias the module 
    layout 'flights'
    
@@ -33,8 +34,10 @@ require 'will_paginate/collection'
        @airports = Airport.all.reorder(:country)
        
        unless @request.trips.nil?
-         @orrey = @request.trips.trip_option[0..20]
+         #@orrey = @request.trips.trip_option[0..20]
          #@orrey = @correy.paginate(:page => params[:page], :per_page => 5)
+
+         @orrey = @request.trips.trip_option
          @airlines = Airline.all
         else
          flash[:notice] = "No trips to the airport"
