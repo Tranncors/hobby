@@ -2,6 +2,7 @@ class RequestController < ApplicationController
 require 'google/apis/qpx_express_v1'
 require 'will_paginate/collection'
 
+
   QpxExpress = Google::Apis::QpxExpressV1 # Alias the module 
    layout 'flights'
    
@@ -39,6 +40,7 @@ require 'will_paginate/collection'
 
          @orrey = @request.trips.trip_option
          @airlines = Airline.all
+         
         else
          flash[:notice] = "No trips to the airport"
        end
@@ -46,6 +48,10 @@ require 'will_paginate/collection'
          @request = []
          @airports = Airport.all.reorder(:country)
      end
+     respond_to do |format|
+     format.html
+     format.json { render json: @orrey }
+    end
   end
    
    

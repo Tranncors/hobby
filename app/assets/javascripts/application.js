@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
+//= require angular
+//= require angular-ui-select
+//= require angular-sanitize
+//= require angularjs-slider
+//= require trips_app
 //= require bootstrap-datepicker
 //= require_tree .

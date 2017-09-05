@@ -3,6 +3,14 @@
   "dependencies": {
     "bootstrap-sass-official": "latest",
     "q": "latest",
-    "hippicons": "latest"
+    "hippicons": "latest",
+    "angular": "~> 1.6",
+    "bootstrap-select": "latest",
+    "angular-ui-select": "latest",
+    "angular-sanitize": "latest",
+    "angularjs-slider": "latest"
+  },
+  "resolutions": {
+    "angular": "1.6"
   }
 }

@@ -1,4 +1,176 @@
-<h2>Compare flights</h2>
-<section>
-Hi
-</section>
+<article ng-app="trips" ng-controller="TripSearchController">
+    <% if user_signed_in? %>
+      <span class="pull-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-md"  %></span>
+    <% end %>
+    <h2>Compare flights</h2>
+  <section class="search-form">
+   <form>
+     <div class="input-group input-group-lg">       
+   <div class="row">   
+    <div class="col-md-4">
+  <ui-select ng-model="$parent.froms"
+             theme="bootstrap"
+             ng-disabled="disabled"
+             reset-search-input="false" 
+             style="width: 300px;">
+    <ui-select-match placeholder="Enter an address...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="froms in addresses track by $index"
+             refresh="refreshAddresses($select.search)"
+             refresh-delay="0">
+      <div ng-bind-html="froms.name | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+    </div>
+
+    <div class="col-md-4">
+  <ui-select ng-model="$parent.tods"
+             theme="bootstrap"
+             ng-disabled="disabled"
+             reset-search-input="false"
+             style="width: 300px;">
+    <ui-select-match placeholder="Enter an address...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="tods in addresses track by $index"
+             refresh="refreshAddresses($select.search)"
+             refresh-delay="0">
+      <div ng-bind-html="tods.name | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+    </div>
+    
+    <div class="col-md-4">
+     <div class="input-group date" data-provide="datepicker" data-date-format= "yyyy-mm-dd" data-date-autoclose= "true" >
+      <input type="text" class="form-control" ng-model="deps" placeholder= "Departure Date" required= "true">
+       <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+      </div>
+     </div>
+    </div>  
+    
+   </div> 
+
+  
+    <div class="container-fluid">
+            <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
+            <label class="h4">How many adults</label>
+        </div>
+   
+    <div class="container-fluid">
+            <rzslider rz-slider-model="slider1.value" rz-slider-options="slider1.options" ></rzslider>
+            <label class="h4">How many children</label>
+    </div>
+    
+    <div>
+     <span class="input-group-btn">
+      <button class="btn btn-primary btn-lg" ng-click="brsearch(froms,tods,deps)">
+        Find Trips
+      </button>
+     </span>
+    </div>
+  </div>
+   </form>
+  </section>
+
+
+<aside class="progress">
+ 
+    Loading…  <i class="hi hi-spinner hi-5x hi-pulse"></i>
+      
+ </aside>
+
+
+<article class="panel panel-default search-results" ng-if="origins.length > 0">
+<header class="panel-heading">
+<h1 class="h3">Results</h1>
+<%#= will_paginate @orrey %>
+</header>
+
+ <section class="panel-body">
+ <div class="row" ng-repeat="trip in origins">
+
+    
+   <div class="col-md-6">
+      <article class="panel panel-info">
+            
+        <header class="panel-heading">
+          <div class="row">
+            <div class="col-md-6">
+              <h4> Basis Code: {{ trip.pricing[0].fare[0].basis_code }}</h4>
+            </div>
+            <div class="col-md-6">
+               <h4>Price: {{ trip.sale_total }}</h4> 
+            </div>
+          </div>   
+        </header>
+        
+        <section class="panel-body" ng-repeat="sil in trip.slice">
+
+            <ul class="list-group">    
+               <li class="list-group-item">Total duration of the flight <i class='hi hi-clock-o hi-2x text-warning'></i>: <span class="badge">{{ sil.duration }} Minutes</span> </li>
+               <li class="list-group-item">This flight has <i class='hi hi-exchange hi-2x text-warning'></i>: <span class="badge">{{ sil.segment.length }} segments</span> </li>
+            </ul> 
+        </section>
+        <footer class="panel-footer">
+          <div class="trip">   
+             <p>Book flight easy  <i class="hi hi-arrow-right text-danger hi-lg"></i></p> 
+           </div> 
+        </footer>
+        
+     </article>
+    </div>    
+    
+    <div class="col-md-6" ng-repeat="sil in trip.slice"> 
+      <article class="panel panel-primary" ng-repeat="seg in sil.segment">
+          <header class="panel-heading">
+              <h1>Specific flight info</h1>
+          </header>
+    
+
+        <section class="panel-body">
+        <div class="row">
+           <div class="col-md-6" ng-repeat="airline in (airlines | filter:seg.flight.carrier:true) track by airline.iata">
+              <h4>Airline: {{ airline.name }} </h4> 
+            </div>
+            <div class="col-md-6">
+              <h4>Flight number: {{ seg.flight.number }}</h4>
+            </div>
+        </div> 
+        <ul class="list-group">
+           <li class="list-group-item">Total duration  <i class='hi hi-hourglass-half hi-lg text-danger'></i>: <span class="badge">{{ seg.duration }} Minutes </span></li>
+        </ul>   
+     
+        <ul class="list-group" ng-if="seg.connection_duration.length > 0">
+           <li class="list-group-item">Connection duration: <span class="badge">{{ seg.connection_duration }} Minutes</span> <i class="hi hi-anchor hi-spin hi-lg"></i></li>
+        </ul>
+
+         <div ng-repeat="leg in seg.leg"> 
+           <div class="trip" ng-repeat="origin in airports | filter:leg.origin:true" >          
+              <p>Origin: {{ origin.name }} Airport, {{ origin.city }}, {{ origin.country }} <i class="hi hi-plane hi-rotate-90 text-info hi-2x"></i></p>
+           </div>
+           <div class="trip" ng-repeat="destination in airports | filter:leg.destination:true">
+              <p>Destination: {{ destination.name }} Airport, {{ destination.city }}, {{ destination.country }} <i class="hi hi-plane hi-rotate-270 text-success hi-2x"></i></p>
+           </div>
+           
+           <div class="trip">           
+              <p>Departure: {{ leg.departure_time | date:'medium' }}</p>
+           </div>  
+          </div> 
+
+      </section>
+      <footer class="panel-footer">
+            <div class="trip">
+              <% if user_signed_in? %>
+                 <span class="input-group-btn"><%= submit_tag "Book This Flight", class: "btn btn-primary btn-md pull-right" %></span>
+              <% else %>
+                 <span class="input-group-btn"><%= link_to "Login To Book", new_user_session_path, class: "btn btn-primary btn-md pull-right" %></span>
+              <% end %>
+            </div>  
+       </footer>
+    </article>   
+   </div>
+  
+   
+ </div>
+ </section>
+</article>
+
+</article>

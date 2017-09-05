@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :google_flights, only:[:index]
   resources :search_flights, only:[:index]
   resources :cities, only:[:index]
+  resources :airlines, only:[:index]
+  resources :airports, only:[:index]
   resources :request, only:[:index]
   resources :charges, only: [:new, :create]
   

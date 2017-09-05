@@ -327,6 +327,34 @@ CREATE INDEX airports_iata ON airports USING btree (iata);
 
 
 --
+-- Name: airports_lower_city; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_lower_city ON airports USING btree (lower((city)::text) varchar_pattern_ops);
+
+
+--
+-- Name: airports_lower_country; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_lower_country ON airports USING btree (lower((country)::text) varchar_pattern_ops);
+
+
+--
+-- Name: airports_lower_iata; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_lower_iata ON airports USING btree (lower((iata)::text));
+
+
+--
+-- Name: airports_lower_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX airports_lower_name ON airports USING btree (lower((name)::text) varchar_pattern_ops);
+
+
+--
 -- Name: airports_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
