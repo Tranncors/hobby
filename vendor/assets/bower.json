@@ -8,7 +8,8 @@
     "bootstrap-select": "latest",
     "angular-ui-select": "latest",
     "angular-sanitize": "latest",
-    "angularjs-slider": "latest"
+    "angularjs-slider": "latest",
+    "angular-material": "latest"
   },
   "resolutions": {
     "angular": "1.6"

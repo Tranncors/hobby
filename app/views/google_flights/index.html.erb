@@ -2,94 +2,114 @@
     <% if user_signed_in? %>
       <span class="pull-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-md"  %></span>
     <% end %>
-    <h2>Compare flights</h2>
-  <section class="search-form">
+    
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+     <md-tab label="compare flights">    
+      <md-content class="md-padding">
    <form>
-     <div class="input-group input-group-lg">       
-   <div class="row">   
-    <div class="col-md-4">
-  <ui-select ng-model="$parent.froms"
-             theme="bootstrap"
-             ng-disabled="disabled"
-             reset-search-input="false" 
-             style="width: 300px;">
-    <ui-select-match placeholder="Enter an address...">{{$select.selected.name}}</ui-select-match>
-    <ui-select-choices repeat="froms in addresses track by $index"
+    <div layout="row">
+            
+      <md-input-container flex="33">
+       <ui-select ng-model="$parent.froms" theme="bootstrap" ng-disabled="disabled" reset-search-input="false"  style="width: 300px;">
+        <ui-select-match placeholder="Trip origin...">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="froms in addresses track by $index"
              refresh="refreshAddresses($select.search)"
              refresh-delay="0">
-      <div ng-bind-html="froms.name | highlight: $select.search"></div>
-    </ui-select-choices>
-  </ui-select>
-    </div>
+         <div ng-bind-html="froms.name | highlight: $select.search"></div>
+        </ui-select-choices>
+       </ui-select>
+      </md-input-container>
 
-    <div class="col-md-4">
-  <ui-select ng-model="$parent.tods"
-             theme="bootstrap"
-             ng-disabled="disabled"
-             reset-search-input="false"
-             style="width: 300px;">
-    <ui-select-match placeholder="Enter an address...">{{$select.selected.name}}</ui-select-match>
-    <ui-select-choices repeat="tods in addresses track by $index"
+      <md-input-container flex="33">
+        <ui-select ng-model="$parent.tods" theme="bootstrap" ng-disabled="disabled" reset-search-input="false" style="width: 300px;">
+         <ui-select-match placeholder="Trip destination...">{{$select.selected.name}}</ui-select-match>
+          <ui-select-choices repeat="tods in addresses track by $index"
              refresh="refreshAddresses($select.search)"
              refresh-delay="0">
-      <div ng-bind-html="tods.name | highlight: $select.search"></div>
-    </ui-select-choices>
-  </ui-select>
-    </div>
-    
-    <div class="col-md-4">
-     <div class="input-group date" data-provide="datepicker" data-date-format= "yyyy-mm-dd" data-date-autoclose= "true" >
-      <input type="text" class="form-control" ng-model="deps" placeholder= "Departure Date" required= "true">
-       <div class="input-group-addon">
-        <span class="glyphicon glyphicon-th"></span>
-      </div>
-     </div>
-    </div>  
-    
-   </div> 
-
-  
-    <div class="container-fluid">
-            <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
-            <label class="h4">How many adults</label>
+           <div ng-bind-html="tods.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+       </md-input-container>
+     <md-input-container flex="33">
+      <div class="input-group date" data-provide="datepicker" data-date-format= "yyyy-mm-dd" data-date-autoclose= "true" >
+       <input type="text" class="form-control" ng-model="deps" placeholder= "Departure Date" required= "true">
+        <div class="input-group-addon">
+         <span class="glyphicon glyphicon-th"></span>
         </div>
-   
-    <div class="container-fluid">
-            <rzslider rz-slider-model="slider1.value" rz-slider-options="slider1.options" ></rzslider>
-            <label class="h4">How many children</label>
-    </div>
+       </div>
+      </md-input-container> 
     
-    <div>
-     <span class="input-group-btn">
-      <button class="btn btn-primary btn-lg" ng-click="brsearch(froms,tods,deps)">
-        Find Trips
-      </button>
-     </span>
+    </div> 
+
+
+    <div layout="row"> 
+      <md-input-container flex="33">
+          <label>How many adults</label>
+       <md-select placeholder="How many adults" ng-model="adult" required md-no-asterisk="false">
+        <md-select-header>
+          <span> Adults - </span>
+        </md-select-header>
+        <md-option ng-value="adult" ng-repeat="adult in people">{{ adult }}</md-option>
+       </md-select>
+      </md-input-container> 
+      <md-input-container flex="33">
+          <label>How many children</label>
+       <md-select ng-model="child" placeholder="How many children">
+        <md-select-header>
+          <span> Children - </span>
+        </md-select-header>
+        <md-option ng-value="child" ng-repeat="child in people">{{ child }}</md-option>
+       </md-select>
+      </md-input-container>     
+      <md-input-container flex="33">
+       <md-button class="md-raised md-primary" ng-click="brsearch(froms,tods,deps,adult,child)">Find Trips</md-button>
+      </md-input-container> 
+
     </div>
-  </div>
    </form>
-  </section>
+  </md-content>
+     </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
 
-
-<aside class="progress">
+<aside class="progress" ng-if="!origins.$resolved">
  
     Loading…  <i class="hi hi-spinner hi-5x hi-pulse"></i>
       
  </aside>
 
-
-<article class="panel panel-default search-results" ng-if="origins.length > 0">
-<header class="panel-heading">
-<h1 class="h3">Results</h1>
-<%#= will_paginate @orrey %>
-</header>
-
- <section class="panel-body">
- <div class="row" ng-repeat="trip in origins">
-
-    
-   <div class="col-md-6">
-      <article class="panel panel-info">
+ <div ng-if="origins.length > 0" ng-cloak>
+  <md-toolbar class="md-accent">
+    <div class="md-toolbar-tools">
+      <md-button
+        class="md-icon-button"
+        aria-label="Settings"
+        ng-click="">
+        <md-icon md-svg-icon=""></md-icon>
+      </md-button>
+      <h2>Search results</h2>
+      <span flex></span>
+      <md-button
+        class="md-icon-button"
+        aria-label="Favorite"
+        ng-click="">
+        <md-icon md-svg-icon=""></md-icon>
+      </md-button>
+      <md-button
+        class="md-icon-button"
+        aria-label="More"
+        ng-click="">
+        <md-icon md-svg-icon=""></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding ng-repeat="trip in origins">
+    <div layout="row" layout-xs="column" ng-repeat="sil in trip.slice">
+     <div flex>
+       <article class="panel panel-info">
             
         <header class="panel-heading">
           <div class="row">
@@ -102,7 +122,7 @@
           </div>   
         </header>
         
-        <section class="panel-body" ng-repeat="sil in trip.slice">
+        <section class="panel-body">
 
             <ul class="list-group">    
                <li class="list-group-item">Total duration of the flight <i class='hi hi-clock-o hi-2x text-warning'></i>: <span class="badge">{{ sil.duration }} Minutes</span> </li>
@@ -116,16 +136,15 @@
         </footer>
         
      </article>
-    </div>    
-    
-    <div class="col-md-6" ng-repeat="sil in trip.slice"> 
-      <article class="panel panel-primary" ng-repeat="seg in sil.segment">
+     </div>
+     <div flex>
+       <article class="panel panel-primary" >
           <header class="panel-heading">
               <h1>Specific flight info</h1>
           </header>
     
 
-        <section class="panel-body">
+        <section class="panel-body" ng-repeat="seg in sil.segment">
         <div class="row">
            <div class="col-md-6" ng-repeat="airline in (airlines | filter:seg.flight.carrier:true) track by airline.iata">
               <h4>Airline: {{ airline.name }} </h4> 
@@ -138,7 +157,7 @@
            <li class="list-group-item">Total duration  <i class='hi hi-hourglass-half hi-lg text-danger'></i>: <span class="badge">{{ seg.duration }} Minutes </span></li>
         </ul>   
      
-        <ul class="list-group" ng-if="seg.connection_duration.length > 0">
+        <ul class="list-group" ng-if="seg.connection_duration > 0">
            <li class="list-group-item">Connection duration: <span class="badge">{{ seg.connection_duration }} Minutes</span> <i class="hi hi-anchor hi-spin hi-lg"></i></li>
         </ul>
 
@@ -165,12 +184,10 @@
               <% end %>
             </div>  
        </footer>
-    </article>   
-   </div>
-  
-   
+    </article> 
+     </div>
+    </div>
+  </md-content>      
  </div>
- </section>
-</article>
 
 </article>

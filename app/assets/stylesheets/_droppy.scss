@@ -8,6 +8,18 @@ body {
   border-bottom: 5vh solid $color;
   font-family: "Myriad Pro","Arial",sans;
 }
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555555;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
 .dropdown-el {
     
   min-width: 12em;

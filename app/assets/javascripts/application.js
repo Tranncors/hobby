@@ -17,6 +17,10 @@
 //= require angular-ui-select
 //= require angular-sanitize
 //= require angularjs-slider
+//= require angular-material
+//= require angular-messages
+//= require angular-animate
+//= require angular-aria
 //= require trips_app
 //= require bootstrap-datepicker
 //= require_tree .

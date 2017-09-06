@@ -1,4 +1,4 @@
-var tripapp = angular.module('trips',['ui.select', 'ngSanitize', 'rzModule']);
+var tripapp = angular.module('trips',['ui.select', 'ngSanitize', 'rzModule', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages']);
 
 tripapp.filter('propsFilter', function() {
   return function(items, props) {
@@ -36,10 +36,10 @@ tripapp.controller("TripSearchController",[ "$scope","$http",
     $scope.origins = [];
     $scope.froms;
     $scope.tods;
-    $scope.brsearch = function(searchFroms,searchTods,searchDeps) {
+    $scope.brsearch = function(searchFroms,searchTods,searchDeps,adultCount,childCount) {
       $scope.searchedFor = searchTods;
       $http.get("/request.json",{ "params": { "origin": searchFroms.iata, "destination": searchTods.iata, "date": searchDeps, 
-      "adult_count": $scope.slider.value, "child_count": $scope.slider1.value } }
+      "adult_count": adultCount, "child_count": childCount } }
       ).then(function(response) {
         $scope.origins = response.data;
       },function(response) {
@@ -110,7 +110,7 @@ tripapp.controller("TripSearchController",[ "$scope","$http",
     ]
     }
 };
-
+    
    $scope.airline = {};
     $http.get('/airlines.json'
     ).then(function(response) {
@@ -120,8 +120,9 @@ tripapp.controller("TripSearchController",[ "$scope","$http",
     $http.get('/airports.json'
     ).then(function(response) {
       $scope.airports = response.data;
-    });    
+    }); 
     
+    $scope.people = [ "1","2","3","4","5","6","7","8","9","10"]
+       
   }
 ]);
-
