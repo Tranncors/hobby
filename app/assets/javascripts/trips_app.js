@@ -122,7 +122,8 @@ tripapp.controller("TripSearchController",[ "$scope","$http",
       $scope.airports = response.data;
     }); 
     
-    $scope.people = [ "0","1","2","3","4","5","6","7","8","9","10"];
+    $scope.people = [ "1","2","3","4","5","6","7","8","9","10"];
+    $scope.children = [ "0","1","2","3","4","5","6","7","8","9","10"];
        
   }
 ]);

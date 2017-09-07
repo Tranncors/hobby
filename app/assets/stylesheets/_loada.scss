@@ -4,64 +4,1602 @@
   margin: 100px auto;
 }
 
-.sk-cube-grid {
-  width: 40px;
-  height: 40px;
-  margin: 100px auto;
-}
+/* ----------- iPhone 4 and 4S ----------- */
 
-.sk-cube-grid .sk-cube {
-  width: 33%;
-  height: 33%;
-  background-color: #333;
-  float: left;
-  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
-}
-.sk-cube-grid .sk-cube1 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube2 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube3 {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s; }
-.sk-cube-grid .sk-cube4 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube5 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube6 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube7 {
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s; }
-.sk-cube-grid .sk-cube8 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube9 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
 
-@-webkit-keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1); 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
   }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
 }
 
-@keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1);
-  } 
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+        
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+        
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+        
+
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- Galaxy S4 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- iPad mini ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* ----------- Galaxy Tab 10.1 ----------- */
+
+/* Portrait and Landscape */
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1280px) {
+
+}
+
+/* Portrait */
+@media 
+  (max-device-width: 800px) 
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media 
+  (max-device-width: 1280px) 
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- Asus Nexus 7 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 601px) 
+  and (device-height: 906px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 601px) 
+  and (device-height: 906px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 601px) 
+  and (device-height: 906px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Kindle Fire HD 7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 800px) 
+  and (max-device-width: 1280px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 800px) 
+  and (max-device-width: 1280px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 800px) 
+  and (max-device-width: 1280px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Kindle Fire HD 8.9" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Apple Watch ----------- */
+@media
+  (max-device-width: 42mm)
+  and (min-device-width: 38mm) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+  
+}
+
+/* ----------- Moto 360 Watch ----------- */
+@media 
+  (max-device-width: 218px)
+  and (max-device-height: 281px) { 
+   body{
+        font-size: 10px;
+    }
+   h1 {
+      font-size: 1.3em;
+      margin: 0.27em 0;
+    }
+   h2 {
+      font-size: 1.2em;
+      margin: 0.27em 0;
+    }    
+   .btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    line-height: 1.228571429;
+    border-radius: 4px;
+  }
+   .md-button {
+    font-size: 12px;
+ }
+   .md-tab {
+      font-size: 12px;
+      padding: 24px 14px;
+      line-height: 24px;
+   }
+   button {
+    font-size: 12px;
+ }  
+   md-input-container {
+    padding: 1px;
+    margin: 12px 0;
+   } 
+   .panel-body {
+    padding: 5px;
+  }
+   .badge {
+    font-size: 10px;
+ }
+   h4, .h4 {
+    font-size: 1.2em;
+ }
+   h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+  }      
+ 
 }
