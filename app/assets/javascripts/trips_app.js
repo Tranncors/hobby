@@ -33,19 +33,21 @@ tripapp.filter('propsFilter', function() {
 
 tripapp.controller("TripSearchController",[ "$scope","$http", 
   function($scope,$http) {
-    $scope.origins = [];
+    
     $scope.froms;
     $scope.tods;
     $scope.brsearch = function(searchFroms,searchTods,searchDeps,adultCount,childCount) {
       $scope.searchedFor = searchTods;
+      $scope.loading = true;
       $http.get("/request.json",{ "params": { "origin": searchFroms.iata, "destination": searchTods.iata, "date": searchDeps, 
       "adult_count": adultCount, "child_count": childCount } }
       ).then(function(response) {
         $scope.origins = response.data;
       },function(response) {
         alert("There was a problem: " + response.status);
-      }
-      );
+      }).finally(function() {
+        $scope.loading = false;
+      });
 
     };
     
@@ -124,6 +126,7 @@ tripapp.controller("TripSearchController",[ "$scope","$http",
     
     $scope.people = [ "1","2","3","4","5","6","7","8","9","10"];
     $scope.children = [ "0","1","2","3","4","5","6","7","8","9","10"];
+     
        
   }
 ]);
